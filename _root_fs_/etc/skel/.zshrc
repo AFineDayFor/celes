@@ -1,4 +1,4 @@
-/ paths
+#paths
 PATH="$PATH:/bin:/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$HOME/.gem/ruby/2.3.0/bin:$HOME/bin:$HOME/.node_modules/bin:$GOBIN:/usr/lib/ccache/bin/:$HOME/.dynamic-colors/bin:$HOME/dev/pl/perl5/bin"
 MANPATH="/usr/local/man:$MANPATH"
 PERL5LIB="$HOME/dev/pl/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
