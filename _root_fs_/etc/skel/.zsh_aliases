@@ -1,0 +1,3 @@
+#!/bin/bash
+[[ ! -z $(which srm) ]]&&alias rm='srm'
+[[ ! -z $(which dcfldd) ]]&&alias dd='dcfldd'

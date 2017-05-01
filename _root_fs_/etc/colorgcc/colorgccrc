@@ -1,0 +1,25 @@
+chainedPath: 1
+color-g++: /usr/bin/g++
+color-gcc: /usr/bin/gcc
+color-c++: /usr/bin/c++
+color-cc:  /usr/bin/cc
+g++: /usr/lib/ccache/bin/g++
+gcc: /usr/lib/ccache/bin/gcc
+c++: /usr/lib/ccache/bin/g++
+cc: /usr/lib/ccache/bin/cc
+g77:/usr/bin/g77
+f77:/usr/bin/g77
+gcj:/usr/bin/gcj
+nocolor: dumb
+srcColor: bold cyan
+introFileNameColor: reset
+introMessageColor:  blue
+warningFileNameColor: reset
+warningNumberColor:   white
+warningMessageColor:  yellow
+errorFileNameColor: reset
+errorNumberColor:   white
+errorMessageColor:  bold red
+noteFileNameColor: reset
+noteNumberColor:   white
+noteMessageColor:  green

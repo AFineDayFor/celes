@@ -1,0 +1,56 @@
+clockColor="\x0B"
+freeSpaceColor="\x0D"
+wifiColor="\x05"
+batteryColor="\x06"
+procColor="\x09"
+memColor="\x0E"
+sp="$(echo -ne " ")"
+sp1="$(echo -ne " | ")"
+sp2="$(echo -ne "| ")"
+sp3="$(echo -ne "|")"
+print_cpufreq() {
+  curr_freq="$(cpupower frequency-info | grep 'frequency is' | cut -c28-34)"
+  echo -ne "${color6}º${color0}${curr_freq}"
+}
+print_mem() {
+    make_free_work="$(unalias free)"
+    mem_used="$(free -m | grep 'Mem' | cut -c28-31)"
+    mem_free="$(free -m | grep 'Mem' | cut -c76-79)"
+    echo -ne "${memColor}${sp}Î${sp}${mem_used}M/${mem_free}M"
+}
+print_power() {
+  status="$(cat /sys/class/power_supply/AC/online)"
+  battery="$(cat /sys/class/power_supply/BAT0/capacity)"
+  timer="$(acpi -b | grep "Battery" | awk '{print $5}' | cut -c 1-5)"
+  if [ "${status}" == 1 ]; then
+    echo -ne "${batteryColor}${sp}Â${sp}ON ${battery}"
+  else
+    echo -ne "${batteryColor}${sp}ð${sp}${battery}% ${timer}"
+  fi
+}
+print_wifiqual() {
+  ssid="$(iwgetid -r)"
+  if [ ${ssid} ]; then
+    echo -ne "${wifiColor}${sp}¤${sp}${ssid} "
+  else
+    echo -ne "${wifiColor}${sp}¤${sp}NO NETWORK "
+  fi
+}
+print_hddfree() {
+  hddfree="$(df -Ph /dev/mmcblk0p2 | awk '$3 ~ /[0-9]+/ {print $4}')"
+  echo -ne "${freeSpaceColor}${sp}¨${sp}${hddfree} - rootfs"
+}
+print_datetime() {
+  #datetime="$(date "+%a %d %b %I:%M")"
+  datetime="$(date "+%Y-%m-%dT%H:%M%:z")"
+  echo -ne "${clockColor}${sp}É${sp}${datetime}"
+}
+while true; do
+print_cpu() {
+	cpu="$( top -b -d1 -n2 | grep Cpu0 | cut -c22-24 | tail -n1 )"
+	echo -ne "${procColor}${sp}Ñ${sp}${cpu}%"
+}
+  # Pipe to status bar, not indented due to printing extra spaces/tabs
+  xsetroot -name "$(print_mem)$(print_cpu)$(print_power)$(print_hddfree)$(print_wifiqual)$(print_datetime)"
+  sleep 1
+ done

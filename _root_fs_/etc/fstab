@@ -1,0 +1,10 @@
+/dev/mmcblk0p2 / f2fs rw,relatime,lazytime,background_gc=on,inline_data,inline_dentry,flush_merge,extent_cache,mode=adaptive,active_logs=6 0 0
+/dev/mmcblk0p1 /boot ext4 rw,relatime,data=ordered 0 2
+/dev/mmcblk1p2 /mnt ext4 rw,relatime 0 0
+/dev/mmcblk1p1 none swap defaults,gid=root,mode=1600 0 0
+proc		/proc			proc	defaults,noatime 1 1
+tmpfs		/tmp			tmpfs	nodev,nosuid,noexec,relatime 0 0
+tmpfs		/dev/shm		tmpfs	nodev,nosuid,noexec,relatime 0 0
+tmpfs		/root/scratch		tmpfs	nodev,nosuid,gid=root,mode=1700 0 0
+tmpfs		/home/helf/scratch	tmpfs	nodev,nosuid,gid=helf,mode=1770,noauto 0 0
+tmpfs		/home/welf/scratch	tmpfs	nodev,nosuid,gid=welf,mode=1770,noauto 0 0

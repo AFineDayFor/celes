@@ -1,0 +1,2 @@
+# Random macaddr
+ACTION=="add", SUBSYSTEM=="net", RUN+="/usr/bin/macchanger -rb %k

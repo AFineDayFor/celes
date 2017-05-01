@@ -1,0 +1,9 @@
+{
+  "graph": "/mnt/dckr",
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "16m",
+    "max-file": "8"
+  },
+  "debug": false
+} 

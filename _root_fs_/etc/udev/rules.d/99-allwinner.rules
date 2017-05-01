@@ -1,0 +1,8 @@
+SUBSYSTEM=="usb", ATTR{idVendor}=="1f3a", MODE="0660", GROUP="adbusers"
+SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", MODE="0660", GROUP="adbusers"
+SUBSYSTEM=="usb", ATTR{idVendor}=="067b", MODE="0660", GROUP="adbusers"
+
+SUBSYSTEM=="usb", ATTRS{idVendor}=="1f3a", ATTRS{idProduct}=="efe8", TAG+="uaccess", TAG+="udev-acl", SYMLINK+="usb-chip"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="18d1", ATTRS{idProduct}=="1010", TAG+="uaccess", TAG+="udev-acl", SYMLINK+="usb-chip-fastboot"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="1f3a", ATTRS{idProduct}=="1010", TAG+="uaccess", TAG+="udev-acl", SYMLINK+="usb-chip-fastboot"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="067b", ATTRS{idProduct}=="2303", TAG+="uaccess", TAG+="udev-acl", SYMLINK+="usb-serial-adapter"

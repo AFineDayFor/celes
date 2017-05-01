@@ -1,0 +1,17 @@
+URxvt*termName:                 screen-256color
+URxvt*font:                     xft:Dejavu Sans Mono:pixelsize=10
+URxvt.depth:                    32
+URxvt*lineSpace:                1
+URxvt.letterSpace:              0
+URxvt.iso14755:                 false
+URxvt.iso14755_52:              false
+URxvt*geometry:                 90x60
+URxvt.scrollBar:                false
+URxvt*loginShell:               true
+URxvt.internalBorder:           16
+URxvt.perl-ext-common:          default,clipboard
+URxvt.keysym.Shift-Control-C:   perl:clipboard:copy
+URxvt.keysym.Shift-Control-V:   perl:clipboard:paste
+URxvt.clipboard.autocopy:       true
+!URxvt.transparent: true 
+!URxvt.shading: 10
