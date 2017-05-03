@@ -1,0 +1,6 @@
+[submodule "_root_fs_/etc/skel/.dynamic-colors"]
+	path = _root_fs_/etc/skel/.dynamic-colors
+	url = https://github.com/sos4nt/dynamic-colors
+[submodule "_root_fs_/etc/skel/.tmux/plugins/tpm"]
+	path = _root_fs_/etc/skel/.tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
