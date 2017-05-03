@@ -8,9 +8,9 @@ PERL_MM_OPT="INSTALL_BASE=$HOME/dev/pl/perl5"
 CCACHE_DIR=$TMPDIR/ccache
 # eyecandy
 eval $(dircolors -b $HOME/.dircolors)
+eval $(thefuck --alias fck)
 dynamic-colors init
-lugins=(archlinux zsh-navigation-tools)
-# xoxo,kthx.
+plugins=(archlinux zsh-navigation-tools)
 TERM=rxvt-unicode
 SHELL=/bin/zsh
 ZSH=/usr/share/oh-my-zsh
@@ -33,16 +33,17 @@ ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="yyyy-mm-dd"
-HISTFILE=$HOME/.zsh_history
-HISTSIZE=1024
+HISTFILE=$TMPDIR/zsh_history
+HISTSIZE=56
 SAVEHIST=$HISTSIZE
 ZSH_CUSTOM=/etc/profile.d/
 # oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 # personal
 source $HOME/.zsh_aliases
-source $HOME/.zprofile
+source $HOME/.zsh_functions
+source $HOME/.zsh_profile
 # prompt
-#autoload -Uz promptinit
-#promptinit
-#prompt walters
+autoload -Uz promptinit
+promptinit
+prompt off

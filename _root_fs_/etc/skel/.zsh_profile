@@ -1,0 +1,9 @@
+umask 077
+# X at login
+if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
+	exec startx
+fi
+# TMUX
+if which tmux >/dev/null 2>&1; then
+	test -z "$TMUX" && (tmux attach -t principale || tmux new-session -s principale)
+fi

@@ -23,7 +23,7 @@ static const int nmaster = 1;                   /* number of clients in master a
 static const Bool resizehints = False;          /* true means respect size hints in tiled resizals */
 static const char font[] = "-*-tamsynmod-medium-r-*-*-14-*-*-*-*-*-*-*"; //-*-terminus-medium-r-*-*-20-*-*-*-*-*-*-*";
 static const char font2[] = "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*";
-static const char colors[NUMCOLORS][ColLast][14] = {
+static const char colors[NUMCOLORS][ColLast][10] = {
     /* border    fg         bg */
     { "#002b36", "#afd700", "#002b36" },        /* 01 - regular */
     { "#cb4b16", "#afd700", "#cb4b16" },        /* 02 - selected */
@@ -31,13 +31,10 @@ static const char colors[NUMCOLORS][ColLast][14] = {
     { "#268bd2", "#cb4b16", "#002b36" },        /* 04 - occupied */
     { "#d44782", "#FFFFFF", "#d44782" },        /* 05 - Wifi */
     { "#a54242", "#000000", "#a54242" },        /* 06 - Battery */
-    { "#323d3e", "#b41952", "#323d3e" },        /* 07 - Sensor */
-    { "#663db7", "#3e8c9a", "#663db7" },        /* 08 - RPM */
     { "#131516", "#5d810e", "#131516" },        /* 09 - PROC */
     { "#afd700", "#dc322f", "#002b36" },        /* 0A - layout colours */
     { "#ff2c4b", "#FFFFFF", "#ff2c4b" },        /* 0B - Clock */
     { "#0b9dff", "#054f87", "#0b9dff" },        /* 0C - Volume */
-    { "#fee13e", "#181718", "#fee13e" },        /* 0D - Free Space */
     { "#20B2AA", "#000000", "#20B2AA"},      /* 0E - Mem free */
 };
 static const Layout layouts[] = {
