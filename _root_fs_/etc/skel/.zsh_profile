@@ -5,5 +5,7 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
 fi
 # TMUX
 if which tmux >/dev/null 2>&1; then
-	test -z "$TMUX" && (tmux attach -t principale || tmux new-session -s principale)
+	test -z "$TMUX" && (tmux has-session -t principale||tmux new-session -d -s principale)
+	test -z "$TMUX" && (tmux has-session -t développement||tmux new-session -d -s développement nvim)
+	test -z "$TMUX" && (tmux has-session -t joux||tmux new-session -d -s joux)
 fi
