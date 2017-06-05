@@ -1,11 +1,16 @@
+# Privacy
 umask 077
+
+# TMUX
+export TMUX_M=principale
+export TMUX_D=développement
+ifprincipale [[ -z "$TMUX" ]] ;then
+	(nohup tmux has-session -t $TMUX_M&>/dev/null&)||(sleep 4);(nohup tmux new-session -d -s $TMUX_M&>/dev/null&)
+	(nohup tmux has-session -t $TMUX_D&>/dev/null&)||(sleep 4);(nohup tmux new-session -d -s $TMUX_D&>/dev/null&)
+fi
+
 # X at login
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
 	exec startx
 fi
-# TMUX
-if which tmux >/dev/null 2>&1; then
-	test -z "$TMUX" && (tmux has-session -t principale||tmux new-session -d -s principale)
-	test -z "$TMUX" && (tmux has-session -t développement||tmux new-session -d -s développement nvim)
-	test -z "$TMUX" && (tmux has-session -t joux||tmux new-session -d -s joux)
-fi
+

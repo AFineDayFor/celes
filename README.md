@@ -20,6 +20,20 @@ echo -e "\t- Have backups"
 [ISO_8601](https://www.startpage.com/do/dsearch?query=ISO+8601)
 ### KEYS
 #### TMUX
+`Ctrl+x`       : Prefix
+
+`prefix+c`     : Create window
+
+`prefix+g`     : Split H
+`prefix+v`     : Split V
+
+`prefix+,`     : Window previous
+`prefix+.`     : Window next
+
+`prefix+h`     : Window left
+`prefix+j`     : Window up
+`prefix+k`     : Window down
+`prefix+l`     : Window right
 
 #### DWM
 `Meta+Shift+Return` : term(st)

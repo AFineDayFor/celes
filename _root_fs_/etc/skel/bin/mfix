@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+function eset()
+{
+	export NET=$(ip r ls 192.168.43.0/24)
+	export IF_=$(echo $NET|cut -sd' ' -f3)
+	export IP_=$(echo $NET|cut -sd' ' -f9)
+}
+function eunset()
+{
+	export NET=$(ip r ls 192.168.43.0/24)
+	export IF_=$(echo $NET|cut -sd' ' -f3)
+	export IP_=$(echo $NET|cut -sd' ' -f9)
+}
+function lin()
+{
+	printf "[+] Cleaning (netfilter):\t\t%s"&&iptables -v -t mangle -D POSTROUTING -s $IP_/24 -o $IF_ ! -d 127.0.0.1/8 -j TTL --ttl-inc 2 -m comment --comment "routing fix"
+	printf "[+] Adding (netfilter):\t\t\t%s"&&iptables -v -t mangle -I POSTROUTING -s $IP_/24 -o $IF_ ! -d 127.0.0.1/8 -j TTL --ttl-inc 2 -m comment --comment "routing fix"
+}
+
+function and()
+{
+	printf "[+] Disabling (tether) reporting:\t%s"&&settings put global tether_dun_required 0
+	printf "[+] Cleaning (route):\t\t\t%s"&&ip route del table main $IP_/30
+	printf "[+] Adding (route):\t\t\t%s"&&ip route add table main 0.0.0.0/0 via ${IP_} dev $IF_ src $IP_
+	printf "[+] Cleaning (netfilter):\t\t%s"&&iptables -v -t mangle -D POSTROUTING -s $IP_/24 -o $IF_ ! -d 127.0.0.1/8 -j TTL --ttl-inc 2 -m comment --comment "routing fix"
+	printf "[+] Adding (netfilter):\t\t\t%s"&&iptables -v -t mangle -I POSTROUTING -s $IP_/24 -o $IF_ ! -d 127.0.0.1/8 -j TTL --ttl-inc 2 -m comment --comment "routing fix"
+}
+
+function msg()
+{
+	printf "[+] Select one of the following:\n\t[-] (l)inux\n\t[-] (a)ndroid\n"
+}
+
+function main()
+{
+	eset
+	case $1 in
+		a|and|android)		and;;
+		l|lin|linux)		lin;;
+		*)	msg;;
+	esac
+	eunset
+}
+
+main ${@}

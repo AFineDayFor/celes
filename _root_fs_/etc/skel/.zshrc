@@ -1,5 +1,6 @@
 # local
 LC_ALL=fr_FR.utf8
+
 #paths/export
 GOPATH=$HOME/dev/go
 GOBIN=$GOPATH/bi$$$$n

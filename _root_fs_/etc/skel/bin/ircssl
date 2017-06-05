@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# Assumes rm, openssl, cat, and chmod.
+
+# User settings
+KEYBITS=4096
+KEYDAYS=60
+
+# takes any argument as SRVNAME.
+SRVNAME="$@"
+
+# Please adapt for your environment.
+TMPDIR='/tmp/'
+SSLDIR=$HOME'/.irssi/ssl/'
+
+# Please leave as is here down.
+KEY=$TMPDIR`openssl rand -hex 56`
+CRT=$TMPDIR`openssl rand -hex 56`
+PEM=$SSLDIR$SRVNAME'.pem'
+
+function dossl(){
+    openssl req -batch -utf8 \
+        -newkey rsa:$KEYBITS -days $KEYDAYS \
+        -x509 -nodes -keyout $KEY -out $CRT
+}
+function dopem(){
+    cat $CRT > $PEM && cat $KEY >> $PEM
+    chmod  600 $PEM
+}
+function clean(){
+    rm -rf $KEY $CRT
+}
+function sig(){
+    openssl x509 -sha -fingerprint -noout -in $PEM\
+        |sed -e 's/^.*=//;s/://g;y/ABCDEF/abcdef/'
+}
+function testvars(){
+    echo -e "Key bits:\t"$KEYBITS"\nKey days:\t"$KEYDAYS"\nSrv:\t\t"$SRVNAME
+    echo -e "Temp dir:\t"$TMPDIR"\nSSL dir:\t"$SSLDIR
+    echo -e "KEY:\t\t"$KEY"\nCRT:\t\t"$CRT"\nPEM:\t\t"$PEM
+}
+
+if [ $SRVNAME = "test" ];then
+    testvars
+else
+    dossl&&dopem;clean&&sig
+fi
+# Take care.
