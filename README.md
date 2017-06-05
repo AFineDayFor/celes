@@ -25,35 +25,46 @@ echo -e "\t- Have backups"
 `prefix+c`     : Create window
 
 `prefix+g`     : Split H
+
 `prefix+v`     : Split V
 
 `prefix+,`     : Window previous
+
 `prefix+.`     : Window next
 
 `prefix+h`     : Window left
+
 `prefix+j`     : Window up
+
 `prefix+k`     : Window down
+
 `prefix+l`     : Window right
 
 #### DWM
 `Meta+Shift+Return` : term(st)
 
 `Meta+p`       : menu(run)
+
 `Meta+Tab`     : menu(windows)
 
 `Meta+Shift+w` : web(chromium)
+
 `Meta+Shift+f` : filemanager(st -e ranger)
 
 `Meta+Shift+q` : Quit
 
 `Meta+Shift+c` : Toggl
+
 `Meta+Shift+c` : Kill Client
 
 `Meta+Shift+b` : Toggle Bar
+
 `Meta+Ctrl+f`  : Toggle Float
 
 `Meta+t`       : layout(tile)
-`Meta+b`       : layout(bstack)
-`Meta+m`       : layout(monocle)
-`Meta+f`       : layout(float)
 
+`Meta+b`       : layout(bstack)
+
+`Meta+m`       : layout(monocle)
+
+`Meta+f`       : layout(float)
