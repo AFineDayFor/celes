@@ -1,12 +1,11 @@
-" ♎
+" general
 set number
 set relativenumber
 set list
 set tabstop=2
 set shiftwidth=2
 set listchars=eol:¬,tab:⌥˼,trail:˼,nbsp:˽,space:·
-set backupdir=~/scratch/vim/backup/
-set directory=~/scratch/vim/swap/
-set undodir=~/scratch/vim/undo/
-call plug#begin('/usr/share/nvim/runtime/autoload/')
+" plugins
+call plug#begin()
+Plug 'tpope/vim-dispatch'
 call plug#end()
