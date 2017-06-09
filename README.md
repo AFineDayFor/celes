@@ -21,7 +21,7 @@ done
 
 Fix Time(`timedatectl`)
 ===
-Be careful to replace the in-bracket text. Time can be genera
+Be careful to replace the in-bracket text. Time can be general
 
 ```bash
 timedatectl set-ntp 0
