@@ -1,17 +1,39 @@
-## Install
+Install
+===
+
+
+Screenshot
+===
+Assumes `etc/skel` from `_root_fs_/` replaced any default `/etc/skel`, without error.
+
 ```bash
 # I didn't care if my user lost existing files
 cp -r /etc/skel/{*,.*} ~/
 ```
+
+Assumes less
 ```bash
-# You may.
+# You may
 for DERP in $(ls -l /etc/skel/);do
-  [[ -z $HOME/$DERP ]]&&cp -r /etc/skel/$DERP ~/$DERP
+  [[ -z $HOME/$DERP ]]&&cp -ri $HOME/$DERP{,.bak}&&cp -ir /etc/skel/$DERP $HOME/$DERP
 done
 ```
-## Uninstall
+
+Fix Time(`timedatectl`)
+===
+Be careful to replace the in-bracket text. Time can be genera
+
+```bash
+timedatectl set-ntp 0
+timedatectl set "[YYYY-MM-DD] [HH]:00:00"
+timedatectl set-ntp 1
+```
+
+Uninstall
+===
 ```bash
 echo -e "\t- Have backups"
+  [[ -z $HOME/$DERP ]]&&cp -ri $HOME/$DERP{.bak,}
 ```
 ## General
 ## Screemshot
