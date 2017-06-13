@@ -1,9 +1,12 @@
 {
-  "graph": "/mnt/dckr",
-  "log-driver": "json-file",
-  "log-opts": {
-    "max-size": "16m",
-    "max-file": "8"
-  },
-  "debug": false
+	"graph": "/mnt/dckr",
+	"log-driver": "json-file",
+	"log-opts": {
+		"max-size": "16m",
+		"max-file": "8"
+	},
+	"debug": false,
+	"live-restore": true,
+	"dns": ["127.0.0.1","8.8.8.8","4.2.2.2"],
+	"dns-search": ["duckduckgo.com"]
 } 
