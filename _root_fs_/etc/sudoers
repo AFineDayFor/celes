@@ -1,0 +1,22 @@
+User_Alias      ADMN = adminuserusername
+User_Alias      USER = useruserusername
+Cmnd_Alias      PROC = /usr/bin/nice, /bin/kill, /usr/bin/renice, /usr/bin/pkill, /usr/bin/top, /usr/sbin/htop
+Cmnd_Alias      POW = /sbin/halt, /sbin/reboot, /sbin/poweroff
+Cmnd_Alias      SYS = /usr/bin/systemctl, /usr/bin//netctl, /usr/bin/timedatectl
+Cmnd_Alias      IO = /usr/bin/mount, /bin/usr/umount, /usr/bin/dd, /usr/bin/dcfldd, /usr/bin/mkfs
+Defaults env_keep += "LANG LANGUAGE LINGUAS LC_* _XKB_CHARSET"
+Defaults env_keep += "HOME"
+Defaults env_keep += "XAPPLRESDIR XFILESEARCHPATH XUSERFILESEARCHPATH"
+Defaults env_keep += "QTDIR KDEDIR"
+Defaults env_keep += "XDG_SESSION_COOKIE"
+Defaults env_keep += "XMODIFIERS GTK_IM_MODULE QT_IM_MODULE QT_IM_SWITCHER"
+Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+Defaults mail_badpass
+Defaults log_output
+Defaults!/usr/bin/sudoreplay !log_output
+Defaults!/usr/local/bin/sudoreplay !log_output
+Defaults!REBOOT !log_output
+root ALL=(ALL) ALL
+ADMN ALL=NOPASSWD: ALL
+USER ALL=NOPASSWD: IO,PROC,POW,SYS
+#includedir /etc/sudoers.d
