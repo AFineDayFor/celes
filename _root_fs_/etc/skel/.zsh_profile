@@ -2,11 +2,13 @@
 umask 077
 
 # TMUX
-export TMUX_M=principale
-export TMUX_D=développement
-ifprincipale [[ -z "$TMUX" ]] ;then
-	(nohup tmux has-session -t $TMUX_M&>/dev/null&)||(sleep 4);(nohup tmux new-session -d -s $TMUX_M&>/dev/null&)
-	(nohup tmux has-session -t $TMUX_D&>/dev/null&)||(sleep 4);(nohup tmux new-session -d -s $TMUX_D&>/dev/null&)
+export TMUX_P="principale"
+export TMUX_D="développement"
+export TMUX_S="supplémentaire"
+if [[ -z "$TMUX" ]] ;then
+	(nohup tmux has-session -t $TMUX_P&>/dev/null&) || (sleep 4) && (nohup tmux new-session -d -s $TMUX_P&>/dev/null&)
+	(nohup tmux has-session -t $TMUX_D&>/dev/null&) || (sleep 4) && (nohup tmux new-session -d -s $TMUX_D&>/dev/null&)
+	(nohup tmux has-session -t $TMUX_S&>/dev/null&) || (sleep 4) && (nohup tmux new-session -d -s $TMUX_S&>/dev/null&)
 fi
 
 # X at login

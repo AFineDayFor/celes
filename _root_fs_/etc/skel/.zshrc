@@ -1,6 +1,6 @@
 # lang
 LC_ALL=fr_FR.utf8
-#paths/export
+# paths/export
 TMPDIR=${HOME}/scratch
 GOPATH=${HOME}/dev/go
 GOBIN=$GOPATH/bin
@@ -11,6 +11,8 @@ PLBIN=$PLPATH/bin
 RVMPATH=${HOME}/dev/rvm
 RVMBIN=$NPMPATH/bin
 PATH="$PATH:/usr/lib/ccache/bin/:${HOME}/.dynamic-colors/bin:$GOBIN:$NPMBIN:$PLBIN:$RVMBIN:${HOME}/bin"
+# ccahce support
+# if not enabled, remove entry in PATH above.
 CCACHE_DIR=$TMPDIR/ccache
 # ZSH
 plugins=(archlinux zsh-navigation-tools docker git)
@@ -40,6 +42,8 @@ source $ZSH/oh-my-zsh.sh
 source ${HOME}/.zsh_aliases
 source ${HOME}/.zsh_functions
 source ${HOME}/.zsh_profile
+source ${HOME}/.zsh_secret
+source ${HOME}/.tinycare
 # prompt
 autoload -Uz promptinit
 promptinit
