@@ -2,9 +2,10 @@ Install
 ===
 
 
-Screenshot
+HowTo
 ===
 Assumes `etc/skel` from `_root_fs_/` replaced any default `/etc/skel`, without error.
+Also assumes more about env.
 
 ```bash
 # I didn't care if my user lost existing files
@@ -36,7 +37,7 @@ echo -e "\t- Have backups"
   [[ -z $HOME/$DERP ]]&&cp -ri $HOME/$DERP{.bak,}
 ```
 ## General
-## Screemshot
+## Screenshot
 ![Screenshot](screen.png)
 ### TIME
 [ISO_8601](https://www.startpage.com/do/dsearch?query=ISO+8601)
