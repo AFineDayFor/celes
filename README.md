@@ -26,7 +26,7 @@ Be careful to replace the in-bracket text. Time can be general
 
 ```bash
 timedatectl set-ntp 0
-timedatectl set "[YYYY-MM-DD] [HH]:00:00"
+timedatectl set-time "[YYYY-MM-DD] [HH]:00:00"
 timedatectl set-ntp 1
 ```
 
